@@ -2,11 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View, Button, FlatList, Modal, Alert } from 'react-native';
 
 
-import { MaterialIcons } from '@expo/vector-icons';
-
 import { useState } from 'react';
 
 import AddItem from './components/AddItem/AddItem';
+import List from './components/List/List';
 
 export default function App() {
 
@@ -64,9 +63,9 @@ export default function App() {
 
    }
   
-
   return (
 
+                // ********  Input   ******
     
     <View 
         // onStartShouldSetResponder={importante}
@@ -80,67 +79,16 @@ export default function App() {
         handleonPress={handleonPress}
 
         />
-
-
-        {/* <View style={ styles.titleContainer } >
-
-          <Text style={ styles.title } >
-            Mi Agenda
-          </Text>
-        </View>
-
-      
-      <View style={ styles.inputContainer}>   
-        <TextInput 
-        maxLength={32}
-        placeholder='Nombre'
-        onChangeText={handleChangeText}
-        value={textInput}
-        style={ styles.input} />
-
-        <TextInput 
-        maxLength={10}
-        placeholder='Telefono'
-        onChangeText={handleTelInputText}
-        value={telInput}
-        style={ styles.input} />
-
-        <Button onPress={handleonPress} 
-        title='Agregar Contacto' 
-        color="#ff751a" />
-      </View> */}
-
-
-
+  
+        
       {/* ***** Lista ***** */}
 
-      <FlatList
-      data={itemList}
-      renderItem={({ item }) => (
-
-        <View style={{ width: '90%', marginLeft: 'auto', marginRight: 'auto'
-        }} >
-          <View style={styles.item}  >
-
-          <MaterialIcons name="person-outline" size={25} color="blue" />
-            <Text  >{ item.value } </Text>
-
-            <MaterialIcons name="phone" size={25} color="green" ></MaterialIcons>
-            <Text> {item.phone} </Text>
-            {/* <Button onPress={ () => handleOnDelete(item)} title='X' /> */}
-            <MaterialIcons 
-            onPress={ () => handleOnDelete(item)}
-            name="delete" size={32} color="red" />
-
-            {/* <Text style={ (itemImportante) ? styles.bg1 : styles.bg2} >Nombre:{ item.value } </Text> */}
-
-          </View>
-        </View>
-      )                
-      }
-   
-    keyExtractor={item => item.id}
-      />  
+      <List
+      itemList={itemList}
+      handleOnDelete={handleOnDelete}
+      // item={item}
+      >
+      </List>
 
 
         {/* Ventana Modal */}
@@ -186,21 +134,7 @@ const styles = StyleSheet.create({
   //   marginBottom: 15,
   // },
 
-  item: {
-    padding: 15,
-    marginVertical: 10,
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius:10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    // backgroundColor: itemImportante ? 'red' : 'blue',
-    // width: '80%',
-    fontSize: 50,
-    fontWeight: 'bold'
-    
-  },
+  
 
   modalBackGround: {
     flex: 1,

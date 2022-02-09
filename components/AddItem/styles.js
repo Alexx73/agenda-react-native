@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
       titleContainer: {
         width: '100%',
         backgroundColor: '#ff751a',
-        marginTop: 8,
+        marginTop: 45,
         padding: 9,
       },
     

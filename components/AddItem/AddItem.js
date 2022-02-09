@@ -9,7 +9,7 @@ function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, h
             <View style={ styles.titleContainer } >
 
             <Text style={ styles.title } >
-            Mi Agenda
+            Mi Agenda 
             </Text>
             </View>
 
