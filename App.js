@@ -6,6 +6,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { useState } from 'react';
 
+import AddItem from './components/AddItem';
+
 export default function App() {
 
   const importante = () => {
@@ -67,10 +69,20 @@ export default function App() {
 
     
     <View 
-        onStartShouldSetResponder={importante}
-        style={styles.container}>
+        // onStartShouldSetResponder={importante}
+        style={styles.container}
+        >
+        <AddItem 
+        textInput={textInput}
+        handleChangeText={handleChangeText}
+        telInput={telInput}
+        handleTelInputText={handleTelInputText}
+        handleonPress={handleonPress}
 
-        <View style={ styles.titleContainer } >
+        />
+
+
+        {/* <View style={ styles.titleContainer } >
 
           <Text style={ styles.title } >
             Mi Agenda
@@ -79,7 +91,6 @@ export default function App() {
 
       
       <View style={ styles.inputContainer}>   
-
         <TextInput 
         maxLength={32}
         placeholder='Nombre'
@@ -95,9 +106,9 @@ export default function App() {
         style={ styles.input} />
 
         <Button onPress={handleonPress} 
-        title='Agregar contacto' 
+        title='Agregar Contacto' 
         color="#ff751a" />
-      </View>
+      </View> */}
 
 
 
@@ -129,7 +140,7 @@ export default function App() {
       }
    
     keyExtractor={item => item.id}
-      />
+      />  
 
 
         {/* Ventana Modal */}
@@ -169,49 +180,12 @@ export default function App() {
             // ****  ESTILOS  ****
 
 const styles = StyleSheet.create({
-  container: {
-    // padding: 30,
-    marginTop:40,
-    marginBottom: 15,
-  },
+  // container: {
+  //   // padding: 30,
+  //   marginTop:40,
+  //   marginBottom: 15,
+  // },
 
-  inputContainer: {
-    // flexDirection: 'row',
-    // flex:2,
-    marginBottom: 15,
-    width: '80%',
-    marginLeft: 'auto',
-    marginRight: 'auto'
-  },
-
-  titleContainer: {
-    width: '100%',
-    backgroundColor: '#ff751a',
-    marginTop: 8,
-    padding: 9,
-  },
-
-  title: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
-    padding: 10,
-  },
-
-  input: {
-    marginTop: 30,
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-    // flex: 1,
-    // marginRight: 5,
-    // borderColor: 'red',
-    // borderWidth: 1,
-    padding: 2,
-    // backgroundColor: 'lightgrey',
-    marginBottom: 8,
-    color: 'black'
-  },
   item: {
     padding: 15,
     marginVertical: 10,
