@@ -113,7 +113,6 @@ export default function App() {
 
           <MaterialIcons name="person-outline" size={25} color="blue" />
             <Text  >{ item.value } </Text>
-            <br></br>
 
             <MaterialIcons name="phone" size={25} color="green" ></MaterialIcons>
             <Text> {item.phone} </Text>
@@ -214,7 +213,7 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   item: {
-    padding: 10,
+    padding: 15,
     marginVertical: 10,
     borderColor: 'black',
     borderWidth: 1,
@@ -224,6 +223,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     // backgroundColor: itemImportante ? 'red' : 'blue',
     // width: '80%',
+    fontSize: 50,
+    fontWeight: 'bold'
     
   },
 
