@@ -6,7 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { useState } from 'react';
 
-import AddItem from './components/AddItem';
+import AddItem from './components/AddItem/AddItem';
 
 export default function App() {
 
