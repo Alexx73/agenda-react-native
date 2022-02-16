@@ -2,6 +2,7 @@ import React from 'react'
 import { TextInput, Text, Button, View } from 'react-native'
 
 import styles from './styles'
+import colors from '../../constants/colors'
 
 function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, handleonPress })  {
     return (
@@ -20,6 +21,7 @@ function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, h
             style={ styles.input} 
             value={textInput}
             onChangeText={handleChangeText}
+            autoCapitalize="characters"
             />
 
             <TextInput 
@@ -28,11 +30,13 @@ function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, h
             style={ styles.input}
             value={telInput}
             onChangeText={handleTelInputText}
+            keyboardType="phone-pad"
+            
              />
 
             <Button onPress={handleonPress} 
             title='Agregar Contacto' 
-            color="#ff751a" />
+            color={ colors.primary } />
             </View>
         </View>
     )

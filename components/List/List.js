@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, FlatList, Text, StyleSheet } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
 
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
@@ -7,7 +7,7 @@ import styles from './styles';
 
 function List ({ itemList, item, handleOnDelete   }) {
     return (
-        <FlatList
+        <FlatList style={ styles.list}
         data={itemList}
         renderItem={({ item }) => (
   
@@ -16,7 +16,7 @@ function List ({ itemList, item, handleOnDelete   }) {
             <View style={styles.item}  >
   
             <MaterialIcons name="person-outline" size={25} color="blue" />
-              <Text  >{ item.value } </Text>
+              <Text style={ styles.cap } >{ item.value } </Text>
   
               <MaterialIcons name="phone" size={25} color="green" ></MaterialIcons>
               <Text> {item.phone} </Text>
@@ -35,8 +35,5 @@ function List ({ itemList, item, handleOnDelete   }) {
         />  
     )
 }
-
-
-
 
 export default List

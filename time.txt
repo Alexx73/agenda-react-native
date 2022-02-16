@@ -5,3 +5,6 @@ min
 1 : 32
 
 11
+
+
+SET PATH=C:\Program Files\Nodejs;%PATH%

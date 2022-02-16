@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import colors from "../../constants/colors";
+
 const styles = StyleSheet.create({
     container: {
         // padding: 30,
@@ -9,7 +11,7 @@ const styles = StyleSheet.create({
 
       titleContainer: {
         width: '100%',
-        backgroundColor: '#ff751a',
+        backgroundColor: colors.primary,
         marginTop: 45,
         padding: 9,
       },

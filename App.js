@@ -1,17 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View, Button, FlatList, Modal, Alert } from 'react-native';
+import { StyleSheet,   View, Alert } from 'react-native';
 
 
 import { useState } from 'react';
 
 import AddItem from './components/AddItem/AddItem';
 import List from './components/List/List';
+import Modal2 from './components/Modal/Modal';
 
 export default function App() {
 
   const importante = () => {
     setItemImportante(!itemImportante);
-    // Alert.alert(` ${itemImportante} ` )
+    // alert(` ${itemImportante} ` )
+    
   }
 
   const [ textInput, setTextInput] = useState('');
@@ -52,14 +54,17 @@ export default function App() {
   }
 
   const handleChangeText = (text) => {
-    // Alert.alert(text.value)
-    setTextInput(text) 
+
+    // ******  Validacion de entrade de texto ******
+    setTextInput(text.replace(/[^a-z & A-Z]/g, '')) 
+
 
    }
 
    const handleTelInputText = (text) => {
-    // Alert.alert(text.value)
-    setTelInput(text) 
+
+        // ******  Validacion  numerica ******
+    setTelInput(text.replace(/[^0-9]/g, '')) 
 
    }
   
@@ -93,31 +98,16 @@ export default function App() {
 
         {/* Ventana Modal */}
 
-       <Modal 
-       animationType='slide'
-       visible={modalVisible}>
-         <View style={styles.modalBackGround} >
-           <View style={styles.modalContainer} >
-             <View  >
+        <Modal2 
+        modalVisible={modalVisible}
+        handleConfirmDelete={handleConfirmDelete}
+        itemSelected={itemSelected}
 
-             <Text>
-               Seguro desea eliminar  
-               <Text style={styles.innerText} > {itemSelected.value}</Text> ?
-             </Text>
-             {/* <Text>{itemSelected.value}</Text> */}
-             <View  >
+        >
 
-             <Button 
-             
-             onPress={handleConfirmDelete} 
-             title='Confirmar'  />
-              </View>
-             </View>
-           </View>
-           
-         </View>
-        </Modal> 
+        </Modal2>
 
+       
       <StatusBar style="auto" />
     </View>
   );
@@ -128,34 +118,12 @@ export default function App() {
             // ****  ESTILOS  ****
 
 const styles = StyleSheet.create({
-  // container: {
-  //   // padding: 30,
-  //   marginTop:40,
-  //   marginBottom: 15,
-  // },
-
-  
-
-  modalBackGround: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
+  container: {
+    // padding: 30,
+    marginTop:40,
+    marginBottom: 15,
   },
 
-  modalContainer: {
-    width: '80%',
-    backgroundColor: 'white',
-    paddingHorizontal: 20,
-    paddingVertical: 30,
-    borderRadius: 20,
-    elevation: 20,
-  },
-
-  innerText: {
-    color: 'red',
-    fontWeight: 'bold'
-  },
 
   bg1: {
     backgroundColor: 'white'
