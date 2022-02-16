@@ -26,10 +26,11 @@ const styles = StyleSheet.create({
       },
 
       inputContainer: {  
-        marginBottom: 15,
+        marginBottom: 20,
         width: '80%',
         marginLeft: 'auto',
-        marginRight: 'auto'
+        marginRight: 'auto',
+        marginTop: 10
       },
     
       input: {
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'black',
         borderBottomWidth: 1,
         padding: 2,
-        marginBottom: 8,
+        marginBottom: 25,
         color: 'black',
         fontFamily: colors.fontDef
 

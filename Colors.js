@@ -10,7 +10,9 @@ export default {
     ButtonTextColor: 'white',
     titleFontSize: 24,
     fontDef: 'Roboto-Bold',
-    font2: 'Roboto'
+    font2: 'Roboto',
+    bg1: 'darkturquoise',
+    bg2: 'gainsboro'
 
 
 }

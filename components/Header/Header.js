@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.primary,
         alignItems: 'center',
         justifyContent: 'center',
-        // marginTop: 45,
+        marginTop: -40,
       },
       headerTitle: {
         // color: '#50514f',

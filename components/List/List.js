@@ -3,24 +3,25 @@ import { View, FlatList, Text } from 'react-native'
 
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
+import colors from '../../constants/colors';
 
 
-function List ({ itemList, item, handleOnDelete   }) {
+function List ({ itemList, item, handleOnDelete, numContactos  }) {
     return (
 
         <View> 
 
-          <Text>Lista de Contactos</Text>
         <FlatList style={ styles.list}
         data={itemList}
         renderItem={({ item }) => (
   
-          <View style={{ width: '90%', marginLeft: 'auto', marginRight: 'auto'
+          <View style={{ width: '90%', marginLeft: 'auto', marginRight: 'auto', 
           }} >
             <View style={styles.item}  >
-  
+                
             <MaterialIcons name="person-outline" size={25} color="blue" />
-              <Text style={ styles.cap } >{ item.value } </Text>
+              <Text style={ styles.cap } >{ item.value }  </Text>
+              { console.log(numContactos) }
   
               <MaterialIcons name="phone" size={25} color="green" ></MaterialIcons>
               <Text style={ styles.cap }  > {item.phone} </Text>

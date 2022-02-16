@@ -11,7 +11,7 @@ import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
 import colors from './constants/colors';
-
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function App() {
 
@@ -31,7 +31,7 @@ export default function App() {
   const [itemImportante, setItemImportante ] = useState(false)
 
    const [mostrarContactos, setMostrarContactos] = useState(false)
-   const [numContactos, setNumContactos] = useState('')
+   const [numContactos, setNumContactos] = useState(0)
 
   const [ loaded ] = useFonts({
     Roboto: require('./assets/fonts/Roboto-Regular.ttf'),
@@ -42,7 +42,11 @@ export default function App() {
 
   const handleAregarContacto = () => {
     setMostrarContactos(true)
+  }
 
+  const handleCancelarContacto = () => {
+    setMostrarContactos(false)
+    console.log('cancelar contacto presionado')
   }
 
 
@@ -56,6 +60,7 @@ export default function App() {
   const handleOnDelete = (item) => {
     setModalVisible(true);
     setItemSelected(item)
+    setNumContactos(numContactos-1)
   }
 
   const handleonPress= () => {
@@ -69,6 +74,7 @@ export default function App() {
     ])
 
     setMostrarContactos(false)
+    setNumContactos(numContactos+1)
 
     setTextInput('')
     setTelInput('')
@@ -90,11 +96,38 @@ export default function App() {
 
    }
 
-   let content = <List
-                itemList={itemList}
-                handleOnDelete={handleOnDelete}
-   >
-   </List>
+   let content = <View  >
+                              <Text style={styles.lista } >Lista de Contactos</Text>
+
+                    { numContactos == 0 ?(
+                      <View>
+                        <Text style={{    textAlign: 'center', marginTop:5, padding:5, fontFamily: colors.fontDef, fontSize:16}}>No hay Contactos para mostrar    </Text>
+                        
+                        <FontAwesome5  name="sad-cry" size={34} color="red" style={{ textAlign: 'center', padding: 5}} />
+
+                                               
+                      </View>
+
+                    ) : null }
+
+                  <List
+                              itemList={itemList}
+                              handleOnDelete={handleOnDelete}>
+                              numContactos={numContactos}
+
+                  </List>
+
+                  <View style={ styles.inputContainer} >
+                      <Button onPress={handleAregarContacto } 
+                          title='Agregar Contacto' 
+                          color={ colors.primary }/>
+                  </View>
+
+                  
+                </View>
+   
+
+   
 
   if (mostrarContactos) {
     content = <AddItem 
@@ -103,6 +136,7 @@ export default function App() {
               telInput={telInput}
               handleTelInputText={handleTelInputText}
               handleonPress={handleonPress}
+              handleCancelarContacto={handleCancelarContacto}
               />
   }
 
@@ -119,9 +153,9 @@ export default function App() {
             <Header title="Mi Agenda Digital" />
             { content }
 
-            <Button onPress={handleAregarContacto } 
+            {/* <Button onPress={handleAregarContacto } 
             title='Agregar Contacto' 
-            color={ colors.primary }/>
+            color={ colors.primary }/> */}
           
 
 
@@ -173,10 +207,29 @@ const styles = StyleSheet.create({
     // padding: 30,
     marginTop:40,
     marginBottom: 15,
-    fontFamily: 'Roboto-Bold'
+    fontFamily: 'Roboto-Bold',
+    flex:1,
+    backgroundColor: colors.bg1
+
     
   },
 
+  lista: {
+    backgroundColor: colors.bg1 ,
+    padding: 8,
+    fontWeight: 'bold',
+    width: '100%',
+    textAlign: 'center',
+    fontSize:20,
+  },
+
+  inputContainer: {  
+    marginTop: 20,
+    marginBottom: 15,
+    width: '70%',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  },
 
   bg1: {
     backgroundColor: 'white'

@@ -4,7 +4,7 @@ import { TextInput, Text, Button, View } from 'react-native'
 import styles from './styles'
 import colors from '../../constants/colors'
 
-function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, handleonPress })  {
+function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, handleonPress, handleCancelarContacto })  {
     return (
         <View  >
             {/* <View style={ styles.titleContainer } >
@@ -36,7 +36,13 @@ function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, h
 
             <Button onPress={handleonPress} 
             title='Agregar' 
-            color={ colors.primary }/>
+            color={ colors.primary }/> 
+            
+            <br></br>
+
+            <Button onPress={handleCancelarContacto} 
+            title='Cancelar' 
+            color={ colors.accent }/>
             </View>
         </View>
     )
