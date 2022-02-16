@@ -7,6 +7,10 @@ import styles from './styles';
 
 function List ({ itemList, item, handleOnDelete   }) {
     return (
+
+        <View> 
+
+          <Text>Lista de Contactos</Text>
         <FlatList style={ styles.list}
         data={itemList}
         renderItem={({ item }) => (
@@ -19,7 +23,7 @@ function List ({ itemList, item, handleOnDelete   }) {
               <Text style={ styles.cap } >{ item.value } </Text>
   
               <MaterialIcons name="phone" size={25} color="green" ></MaterialIcons>
-              <Text> {item.phone} </Text>
+              <Text style={ styles.cap }  > {item.phone} </Text>
               {/* <Button onPress={ () => handleOnDelete(item)} title='X' /> */}
               <MaterialIcons 
               onPress={ () => handleOnDelete(item)}
@@ -33,6 +37,8 @@ function List ({ itemList, item, handleOnDelete   }) {
      
       keyExtractor={item => item.id}
         />  
+
+      </View>
     )
 }
 

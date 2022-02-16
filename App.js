@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,   View, Alert } from 'react-native';
-
-
+import { StyleSheet,   View,  Text, Button } from 'react-native';
 import { useState } from 'react';
 
 import AddItem from './components/AddItem/AddItem';
 import List from './components/List/List';
 import Modal2 from './components/Modal/Modal';
+import Header from './components/Header/Header'
+
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
+
+import colors from './constants/colors';
+
 
 export default function App() {
 
@@ -24,6 +29,21 @@ export default function App() {
   const [modalVisible, setModalVisible] = useState(false)
 
   const [itemImportante, setItemImportante ] = useState(false)
+
+   const [mostrarContactos, setMostrarContactos] = useState(false)
+   const [numContactos, setNumContactos] = useState('')
+
+  const [ loaded ] = useFonts({
+    Roboto: require('./assets/fonts/Roboto-Regular.ttf'),
+    'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf')
+  })
+
+  if (!loaded) return <AppLoading />
+
+  const handleAregarContacto = () => {
+    setMostrarContactos(true)
+
+  }
 
 
   const handleConfirmDelete = () => {
@@ -48,6 +68,8 @@ export default function App() {
       },
     ])
 
+    setMostrarContactos(false)
+
     setTextInput('')
     setTelInput('')
 
@@ -67,33 +89,62 @@ export default function App() {
     setTelInput(text.replace(/[^0-9]/g, '')) 
 
    }
-  
-  return (
 
-                // ********  Input   ******
+   let content = <List
+                itemList={itemList}
+                handleOnDelete={handleOnDelete}
+   >
+   </List>
+
+  if (mostrarContactos) {
+    content = <AddItem 
+              textInput={textInput}
+              handleChangeText={handleChangeText}
+              telInput={telInput}
+              handleTelInputText={handleTelInputText}
+              handleonPress={handleonPress}
+              />
+  }
+
+  return (
+          
     
     <View 
+        
         // onStartShouldSetResponder={importante}
         style={styles.container}
         >
-        <AddItem 
+            {/* ********  Header  ******** */}
+
+            <Header title="Mi Agenda Digital" />
+            { content }
+
+            <Button onPress={handleAregarContacto } 
+            title='Agregar Contacto' 
+            color={ colors.primary }/>
+          
+
+
+              {/* // ********  Input   ****** */}
+        {/* <AddItem 
         textInput={textInput}
         handleChangeText={handleChangeText}
         telInput={telInput}
         handleTelInputText={handleTelInputText}
         handleonPress={handleonPress}
 
-        />
+        /> */}
+        {/* <Text>funciona</Text> */}
   
         
       {/* ***** Lista ***** */}
+      {/* // item={item} */}
 
-      <List
+      {/* <List
       itemList={itemList}
       handleOnDelete={handleOnDelete}
-      // item={item}
       >
-      </List>
+      </List> */}
 
 
         {/* Ventana Modal */}
@@ -122,6 +173,8 @@ const styles = StyleSheet.create({
     // padding: 30,
     marginTop:40,
     marginBottom: 15,
+    fontFamily: 'Roboto-Bold'
+    
   },
 
 

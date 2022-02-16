@@ -18,10 +18,11 @@ const styles = StyleSheet.create({
     
       title: {
         fontSize: 25,
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         textAlign: 'center',
         color: 'white',
         padding: 10,
+        fontFamily: colors.fontDef
       },
 
       inputContainer: {  
@@ -37,7 +38,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         padding: 2,
         marginBottom: 8,
-        color: 'black'
+        color: 'black',
+        fontFamily: colors.fontDef
+
       },
     })
 

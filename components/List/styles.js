@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import colors from "../../constants/colors";
+
 const styles = StyleSheet.create({
 
   list: {
@@ -7,7 +9,9 @@ const styles = StyleSheet.create({
   },
 
   cap: {
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    fontFamily: colors.font2
+
 
   },
 
@@ -22,8 +26,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         // backgroundColor: itemImportante ? 'red' : 'blue',
         // width: '80%',
-        fontSize: 50,
-        fontWeight: 'bold' ,
+        fontSize: 60,
+        // fontWeight: 'bold' ,
+        fontFamily: colors.fontDef
+
+
       },
       bg1: {
         backgroundColor: 'white'

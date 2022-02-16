@@ -7,12 +7,12 @@ import colors from '../../constants/colors'
 function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, handleonPress })  {
     return (
         <View  >
-            <View style={ styles.titleContainer } >
+            {/* <View style={ styles.titleContainer } >
 
-            <Text style={ styles.title } >
-            Mi Agenda 
-            </Text>
-            </View>
+                <Text style={ styles.title } >
+                Mi Agenda 
+                </Text>
+            </View> */}
 
             <View style={ styles.inputContainer}>   
             <TextInput 
@@ -35,8 +35,8 @@ function AddItem ({ textInput, handleChangeText, telInput, handleTelInputText, h
              />
 
             <Button onPress={handleonPress} 
-            title='Agregar Contacto' 
-            color={ colors.primary } />
+            title='Agregar' 
+            color={ colors.primary }/>
             </View>
         </View>
     )
