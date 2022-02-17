@@ -3,10 +3,11 @@ import { StyleSheet } from "react-native"
 
 
 export default {
-    primary: '#ff751a',
-    // primary: 'lightblue',
-    bg1: '#e6fff5',
+    // primary: '#ff751a',
+    primary: '#FA824C',
+    // bg1: '#e6fff5',
     bg2: 'azure',
+    bg1: '#FAF0E7',
     bg3: 'ghostwhite',
 
     accent: '#CB807D',
