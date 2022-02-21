@@ -1,17 +1,17 @@
 import { StyleSheet } from "react-native";
 
-import colors from "../../constants/colors";
+import Colors from "../../constants/Colors";
 
 const styles = StyleSheet.create({
 
   list: {
     height: '65%',
-    backgroundColor: colors.bg1
+    backgroundColor: Colors.bg1
   },
 
   cap: {
     textTransform: 'capitalize',
-    fontFamily: colors.font2
+    fontFamily: Colors.font2
 
 
   },
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
         // width: '80%',
         fontSize: 60,
         // fontWeight: 'bold' ,
-        fontFamily: colors.fontDef,
-        backgroundColor: colors.bg3
+        fontFamily: Colors.fontDef,
+        backgroundColor: Colors.bg3
 
       },
       bg1: {

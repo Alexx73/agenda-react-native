@@ -10,7 +10,7 @@ import Header from './components/Header/Header'
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
-import colors from './constants/colors';
+import Colors from './constants/Colors';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function App() {
@@ -85,27 +85,20 @@ export default function App() {
 
     // ******  Validacion de entrade de texto ******
     setTextInput(text.replace(/[^a-z & A-Z]/g, '')) 
-
-
    }
 
    const handleTelInputText = (text) => {
 
         // ******  Validacion  numerica ******
     setTelInput(text.replace(/[^0-9]/g, '')) 
-
    }
 
    let content = <View  >
-                              <Text style={styles.lista } >Lista de Contactos</Text>
-
+                      <Text style={styles.lista } >Lista de Contactos</Text>
                     { numContactos == 0 ?(
                       <View>
-                        <Text style={{    textAlign: 'center', marginTop:5, padding:5, fontFamily: colors.fontDef, fontSize:16}}>No hay Contactos para mostrar    </Text>
-                        
-                        <FontAwesome5  name="sad-cry" size={34} color="red" style={{ textAlign: 'center', padding: 5}} />
-
-                                               
+                        <Text style={{    textAlign: 'center', marginTop:5, padding:5, fontFamily: Colors.fontDef, fontSize:16}}>No hay Contactos para mostrar    </Text>                      
+                        <FontAwesome5  name="sad-cry" size={34} color="red" style={{ textAlign: 'center', padding: 5}} />                                     
                       </View>
 
                     ) : null }
@@ -114,21 +107,15 @@ export default function App() {
                               itemList={itemList}
                               handleOnDelete={handleOnDelete}>
                               numContactos={numContactos}
-
                   </List>
 
                   <View style={ styles.inputContainer} >
                       <Button onPress={handleAregarContacto } 
                           title='Agregar Contacto' 
-                          color={ colors.primary }/>
-                  </View>
-
-                  
+                          color={ Colors.primary }/>
+                  </View>                  
                 </View>
    
-
-   
-
   if (mostrarContactos) {
     content = <AddItem 
               textInput={textInput}
@@ -153,46 +140,15 @@ export default function App() {
             <Header title="Mi Agenda Digital" />
             { content }
 
-            {/* <Button onPress={handleAregarContacto } 
-            title='Agregar Contacto' 
-            color={ colors.primary }/> */}
-          
-
-
-              {/* // ********  Input   ****** */}
-        {/* <AddItem 
-        textInput={textInput}
-        handleChangeText={handleChangeText}
-        telInput={telInput}
-        handleTelInputText={handleTelInputText}
-        handleonPress={handleonPress}
-
-        /> */}
-        {/* <Text>funciona</Text> */}
-  
         
-      {/* ***** Lista ***** */}
-      {/* // item={item} */}
-
-      {/* <List
-      itemList={itemList}
-      handleOnDelete={handleOnDelete}
-      >
-      </List> */}
-
 
         {/* Ventana Modal */}
-
         <Modal2 
         modalVisible={modalVisible}
         handleConfirmDelete={handleConfirmDelete}
         itemSelected={itemSelected}
-
         >
-
-        </Modal2>
-
-       
+        </Modal2>      
       <StatusBar style="auto" />
     </View>
   );
@@ -209,13 +165,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     fontFamily: 'Roboto-Bold',
     flex:1,
-    backgroundColor: colors.bg1
-
-    
+    backgroundColor: Colors.bg1  
   },
 
   lista: {
-    backgroundColor: colors.bg1 ,
+    backgroundColor: Colors.bg1 ,
     padding: 8,
     fontWeight: 'bold',
     width: '100%',

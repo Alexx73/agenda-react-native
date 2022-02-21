@@ -3,7 +3,7 @@ import { View, FlatList, Text } from 'react-native'
 
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
-import colors from '../../constants/colors';
+import Colors from '../../constants/Colors';
 
 
 function List ({ itemList, item, handleOnDelete, numContactos  }) {

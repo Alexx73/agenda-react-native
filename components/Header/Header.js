@@ -1,13 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
  
-// import Colors from '../constants/Colors'
-
-// import Colors from './Colors'
-
-import Colors from '../../constants/colors'
-
-
+import Colors from '../../constants/Colors'
 
 function Header ({ title }) {
     return (
@@ -21,8 +15,8 @@ const styles = StyleSheet.create({
     
     header: {
         width: '100%',
-        height: 90,
-        paddingTop: 5,
+        height: 100,
+        paddingTop: 40,
         backgroundColor: Colors.primary,
         alignItems: 'center',
         justifyContent: 'center',
@@ -30,7 +24,7 @@ const styles = StyleSheet.create({
       },
       headerTitle: {
         // color: '#50514f',
-        fontSize: 22,
+        fontSize: 26,
         color: Colors.ButtonTextColor,
         fontFamily: 'Roboto-Bold'
       },

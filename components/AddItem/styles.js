@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import colors from "../../constants/colors";
+import Colors from "../../constants/Colors";
 
 const styles = StyleSheet.create({
     container: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 
       titleContainer: {
         width: '100%',
-        backgroundColor: colors.primary,
+        backgroundColor: Colors.primary,
         marginTop: 45,
         padding: 9,
       },
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         padding: 10,
-        fontFamily: colors.fontDef
+        fontFamily: Colors.fontDef
       },
 
       inputContainer: {  
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         padding: 2,
         marginBottom: 25,
         color: 'black',
-        fontFamily: colors.fontDef
+        fontFamily: Colors.fontDef
 
       },
     })
